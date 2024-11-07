@@ -1,12 +1,31 @@
-function Question() {
+
+function Question(props) {
     return (
         <div className="question-wrapper">
-            <div className="question-text">How would one say goodbye in Spanish?</div>
+            <div className="question-text">{props.question}</div>
             <div className="answers-wrapper">
-                <button className="answer answer__selected">Adios</button>
-                <button className="answer">Hola</button>
-                <button className="answer">Au Revoir</button>
-                <button className="answer">Salir</button>
+                {props.answers.map((answer) => {
+                    let classList = answer.isSelected ? ' answer__selected' : ''
+                    if(props.isChecked) {
+                        if(answer.isSelected) {
+                            if(answer.isCorrect) {
+                                classList = ' answer__correct'
+                            } else {
+                                classList = ' answer__incorrect'
+                            }
+                        } else {
+                            if(answer.isCorrect) {
+                                classList = ' answer__correct'
+                            }
+                        }
+                    }
+                    return <button 
+                        key={answer.id} 
+                        className={`answer${classList}`}
+                        onClick={() => props.handleSelect(answer.id, props.questionId)}
+                        disabled={props.isChecked}
+                    >{answer.answer}</button>
+                })}
             </div>
         </div>
     )

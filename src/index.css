@@ -66,3 +66,63 @@ main {
 	border-bottom: 1px solid #DBDEF0;
 	padding: 15px 0;
 }
+
+.question-text {
+	margin-bottom: 15px
+}
+
+.answers-wrapper {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.answer {
+	font-size: 0.8rem;
+	height: 30px;
+	color: #293264;
+	background-color: transparent;
+	border: 1px solid #4D5B9E;
+	border-radius: 8px;
+	padding: 0 10px;
+	cursor: pointer;
+}
+
+.answer:hover {
+	border-color: #D6DBF5;
+	background-color: #D6DBF5;
+}
+
+.answer:disabled {
+	color: #293264;
+	background-color: transparent;
+	border: 1px solid #4D5B9E;
+	opacity: .5;
+}
+
+.answer.answer__selected {
+	border-color: #D6DBF5;
+	background-color: #D6DBF5;
+}
+
+.answer.answer__correct {
+	border-color: #94D7A2;
+	background-color: #94D7A2;
+	opacity: 1;
+}
+
+.answer.answer__incorrect {
+	border-color: #F8BCBC;
+	background-color: #F8BCBC;
+	opacity: 1;
+}
+
+.buttons-section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding: 20px 0;
+}
